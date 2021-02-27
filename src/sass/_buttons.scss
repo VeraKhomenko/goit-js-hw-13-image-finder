@@ -1,12 +1,12 @@
 .button {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #0b4f00;
+    margin: 0 auto;
+    background-color: $dot-color;
     color: #ffffff;
+    border-radius: 4px;
 }
 
-.button.is-hidden {
+.is-hidden {
     display: none;
 }
 
@@ -15,10 +15,16 @@
     height: 60px;
     padding: 0;
     margin: auto 0;
-    background-color: #0b4f00;
+    background-color: $dot-color;
     color: #ffffff;
+    border-radius: 4px;
 }
 
 .material-icons.reset {
     margin: 0;
+}
+
+.btn-flex {
+    position: relative;
+    display: flex;
 }

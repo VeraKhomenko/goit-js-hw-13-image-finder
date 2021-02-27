@@ -1,0 +1,77 @@
+.dot-flashing {
+    position: absolute;
+    top: 10px;
+    left: -9960px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: $dot-color;
+    color: $dot-color;
+    box-shadow: 9999px 0 0 -5px $dot-color;
+    animation: dot-flashing 1.5s infinite linear;
+    animation-delay: 0.25s;
+}
+
+.dot-flashing::before,
+.dot-flashing::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: $dot-color;
+    color: $dot-color;
+}
+
+.dot-flashing::before {
+    box-shadow: 9984px 0 0 -5px $dot-color;
+    animation: dot-flashing-before 1.5s infinite linear;
+    animation-delay: 0s;
+}
+
+.dot-flashing::after {
+    box-shadow: 10014px 0 0 -5px $dot-color;
+    animation: dot-flashing-after 1.5s infinite linear;
+    animation-delay: 0.5s;
+}
+
+@keyframes dot-flashing-before {
+    0% {
+        box-shadow: 9984px 0 0 -5px $dot-color;
+    }
+    30% {
+        box-shadow: 9984px 0 0 2px $dot-color;
+    }
+    60%,
+    100% {
+        box-shadow: 9984px 0 0 -5px $dot-color;
+    }
+}
+
+@keyframes dot-flashing {
+    0% {
+        box-shadow: 9999px 0 0 -5px $dot-color;
+    }
+    30% {
+        box-shadow: 9999px 0 0 2px $dot-color;
+    }
+    60%,
+    100% {
+        box-shadow: 9999px 0 0 -5px $dot-color;
+    }
+}
+
+@keyframes dot-flashing-after {
+    0% {
+        box-shadow: 10014px 0 0 -5px $dot-color;
+    }
+    30% {
+        box-shadow: 10014px 0 0 2px $dot-color;
+    }
+    60%,
+    100% {
+        box-shadow: 10014px 0 0 -5px $dot-color;
+    }
+}

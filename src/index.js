@@ -21,9 +21,11 @@ refs.searchFormRef.addEventListener('submit', search);
 refs.loadMoreBtn.addEventListener('click', receiveData);
 
 function onClickReset() {
-    refs.searchFormRef.value = '';
+    refs.searchFormRef.reset();
     refs.dataContainer.value = '';
     updateDataMarkup.clearList();
+    refs.loadMoreBtn.classList.add('is-hidden');
+    // form.reset();
 }
 
 function search(event) {
@@ -31,6 +33,7 @@ function search(event) {
     const form = event.currentTarget;
     const searchQuery = form.elements.query.value;
     if (!searchQuery) {
+        refs.loadMoreBtn.classList.add('is-hidden');
         notice({
             text: 'Enter a query, please!',
         });
@@ -40,7 +43,7 @@ function search(event) {
     refs.dataContainer.innerHTML = '';
     apiService.resetPage();
     receiveData();
-    form.reset();
+
 }
 
 function receiveData() {
@@ -50,14 +53,17 @@ function receiveData() {
     apiService
         .receiveData()
         .then(data => {
-
+            if (data.hits.length != 0) {
+                refs.loadMoreBtn.classList.remove('is-hidden');
+                refs.spinnerRef.classList.add('is-hidden');
+            }
             updateDataMarkup.updateDataMarkup(data);
-            refs.loadMoreBtn.classList.remove('is-hidden');
 
-            // window.scrollTo({
-            //     top: document.documentElement.offsetHeight,
-            //     behavior: 'smooth'
-            // });
+
+            window.scrollTo({
+                top: document.documentElement.offsetHeight,
+                behavior: 'smooth'
+            });
         })
         .finally(() => {
             refs.spinnerRef.classList.add('is-hidden');
@@ -71,7 +77,7 @@ function onClickImg(event) {
     }
     basicLightbox
         .create(
-            `<img width="1400" height="900" src="${event.target.dataset.largeImage}">`,
+            `<img width="1400" height="900" src="${event.target.dataset.largeimage}">`,
         )
         .show();
 }

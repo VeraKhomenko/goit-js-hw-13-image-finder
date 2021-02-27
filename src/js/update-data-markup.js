@@ -1,6 +1,6 @@
 import { defaults, error, notice } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
-import '@pnotify/core/dist/BrightTheme.css';
+import '@pnotify/core/dist/Material.css';
 defaults.mouseReset = false;
 defaults.delay = 3000;
 defaults.styling = 'material';

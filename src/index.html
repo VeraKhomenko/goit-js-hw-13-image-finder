@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>hw-13</title>
-
+    <!-- <link href="node_modules/@pnotify/core/dist/BrightTheme.css" rel="stylesheet" type="text/css" /> -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- <link href="/path/to/three-dots.css" rel="stylesheet"> -->
 
 </head>
 
@@ -19,7 +19,10 @@
             <p class="search-form_label">
                 Search
             </p>
-            <input class="search-form_input" type="text" name="query" autocomplete="off" placeholder="Search images..." />
+            <div class="search-form__indent">
+                <input class="search-form__input" type="text" name="query" autocomplete="off" placeholder="Search images..." />
+            </div>
+
             <button type="button" class="button_reset">
                 <span class="material-icons reset">clear</span>
             </button>
@@ -31,10 +34,12 @@
             <!-- Список <li> с карточками изображений -->
         </ul>
 
+        <div class="btn-flex">
+            <button type="button" class="btn btn-primary button is-hidden" data-action="load-more">Load more</button>
+            <div class="dot-flashing is-hidden"></div>
+        </div>
 
 
-        <button type="button" class="btn btn-primary button is-hidden" data-action="load-more">Load more</button>
-        <div id="spinner" class="download is-hidden"></div>
     </div>
 </body>
 
