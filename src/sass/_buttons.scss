@@ -2,8 +2,23 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    background-color: #0b4f00;
+    color: #ffffff;
 }
 
 .button.is-hidden {
     display: none;
+}
+
+.button_reset {
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    margin: auto 0;
+    background-color: #0b4f00;
+    color: #ffffff;
+}
+
+.material-icons.reset {
+    margin: 0;
 }

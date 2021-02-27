@@ -1,6 +1,12 @@
 .search-form {
     display: flex;
     justify-content: center;
-    padding: 8px;
-    margin-bottom: 24px;
+    text-align: center;
+}
+
+.search-form_input {
+    font-size: 25px;
+    width: 500px;
+    height: 60px;
+    margin: auto 20px;
 }

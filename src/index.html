@@ -13,20 +13,24 @@
 </head>
 
 <body>
-    <div class="pnotify">
-        <div class="container">
-            <form class="search-form js-search-form" id="search-form">
-                <p class="search-form_label">Что ищем?</p>
-                <input class="search-form_input" type="text" name="query" autocomplete="off" placeholder="Search images..." />
-                <button type="button" class="btn-primary button">Искать</button>
-            </form>
 
-        </div>
-        <div class="container">
-            <ul class="gallery-list data js-data">
-                <!-- Список <li> с карточками изображений -->
-            </ul>
-        </div>
+    <div class="container">
+        <form class="search-form js-search-form" id="search-form">
+            <p class="search-form_label">
+                Search
+            </p>
+            <input class="search-form_input" type="text" name="query" autocomplete="off" placeholder="Search images..." />
+            <button type="button" class="button_reset">
+                <span class="material-icons reset">clear</span>
+            </button>
+        </form>
+        <div class="js-info"></div>
+
+
+        <ul class="gallery-list js-data">
+            <!-- Список <li> с карточками изображений -->
+        </ul>
+
 
 
         <button type="button" class="btn btn-primary button is-hidden" data-action="load-more">Load more</button>

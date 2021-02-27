@@ -12,50 +12,17 @@ body {
     font-family: 'PT Sans Narrow', sans-serif;
     font-size: 36px;
     padding: 50px;
+    background-color: rgb(209, 209, 209);
+    color: #000000;
 }
 
-.js-info-country {
-    padding-left: 25%;
+.container {
+    max-width: 1600px;
+    margin: 0 auto 0 auto;
+    padding: 0 15px 0 15px;
+    background-color: hsla(150, 20%, 40%, 0.5);
 }
 
 .title {
     padding-left: 25%;
 }
-
-.gallery-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 20px;
-    padding: 0;
-    margin: 0, auto, 30px;
-    list-style: none;
-    max-width: calc(100vw - 80px);
-}
-
-.gallery-item {
-    height: 450px;
-    overflow: hidden;
-}
-
-// .articles_list {
-//     position: relative;
-//     padding-left: 0;
-// }
-// .articles_item {
-//     list-style: none;
-// }
-// .articles_item_lang {
-//     list-style-type: disc;
-//     list-style-position: inside;
-//     padding-top: 20px;
-// }
-// .name-country {
-//     width: 500px;
-//     height: 50px;
-//     font-size: 25px;
-// }
-// .articles_img {
-//     position: absolute;
-//     top: 0;
-//     right: 35%;
-// }

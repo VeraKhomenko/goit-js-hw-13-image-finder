@@ -1,8 +1,11 @@
 import './sass/styles.scss';
-import apiService from './js/apiService';
+import apiService from './js/apiService.js';
 import refs from './js/refs'
-// import addHandlers from './js/addHandlers';
+
+
 import updateDataMarkup from './js/update-data-markup';
+// import clearList from './js/update-data-markup';
+
 import * as basicLightbox from 'basiclightbox';
 import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
 
@@ -13,9 +16,18 @@ defaults.delay = 1000;
 defaults.styling = 'material';
 defaults.icons = 'material';
 
-refs.searchFormRef.addEventListener('submit', event => {
-    event.preventDefault();
+refs.buttonReset.addEventListener('click', onClickReset)
+refs.searchFormRef.addEventListener('submit', search);
+refs.loadMoreBtn.addEventListener('click', receiveData);
 
+function onClickReset() {
+    refs.searchFormRef.value = '';
+    refs.dataContainer.value = '';
+    updateDataMarkup.clearList();
+}
+
+function search(event) {
+    event.preventDefault();
     const form = event.currentTarget;
     const searchQuery = form.elements.query.value;
     if (!searchQuery) {
@@ -26,14 +38,10 @@ refs.searchFormRef.addEventListener('submit', event => {
     }
     apiService.query = searchQuery;
     refs.dataContainer.innerHTML = '';
-
-
     apiService.resetPage();
     receiveData();
     form.reset();
-});
-
-refs.loadMoreBtn.addEventListener('click', receiveData);
+}
 
 function receiveData() {
     refs.loadMoreBtn.classList.add('is-hidden');
@@ -43,7 +51,7 @@ function receiveData() {
         .receiveData()
         .then(data => {
 
-            updateDataMarkup(data);
+            updateDataMarkup.updateDataMarkup(data);
             refs.loadMoreBtn.classList.remove('is-hidden');
 
             // window.scrollTo({
@@ -69,11 +77,3 @@ function onClickImg(event) {
 }
 
 refs.dataContainer.addEventListener('click', onClickImg);
-//  onChangeNameCountry(event) {
-//     if (!event.target.value) {
-//         return;
-//     }
-//     fetchCountries(event.target.value).then(addHandlers).catch(console.error);
-// }
-
-// nameCountry.addEventListener('input', debounce(onChangeNameCountry, 500));
